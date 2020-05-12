@@ -13,6 +13,7 @@
     "react-dropzone": "^11.0.1",
     "react-json-to-table": "^0.1.5",
     "react-scripts": "3.4.1",
+    "styled-components": "^5.1.0",
     "xlsx": "^0.16.0"
   },
   "scripts": {
