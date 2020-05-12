@@ -29,17 +29,9 @@ const CssTextField = withStyles({
   },
 })(TextField);
 
-const cor = theme => ({
-  input: {
-      color: "pink"
-  }
-});
-
 
 
 function App(props) {
-  const { classes } = props;
-
   const onDrop = useCallback((acceptedFiles) => {
     acceptedFiles.forEach((file) => {
       const reader = new FileReader()
@@ -64,7 +56,6 @@ function App(props) {
     <div className="main">
       <div className="div_esquerda">
         <div>
-          <CssTextField label="teste" InputProps={{className: classes.input,}} />
         </div>
       </div>
       <div className="div_direita">
