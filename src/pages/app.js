@@ -1,7 +1,9 @@
 import React, { useCallback } from 'react'
 import { useDropzone } from 'react-dropzone'
 import { Button, TextField, withStyles } from '@material-ui/core'
-
+import Styles from '../components/pages/App/styles'
+import Form from '../components/Form'
+import Config from '../components/config'
 import * as XLSX from 'xlsx'
 import { JsonToTable } from 'react-json-to-table'
 
@@ -46,17 +48,23 @@ function App(props) {
 	const { getRootProps, getInputProps } = useDropzone({ onDrop })
 
 	return (
-		<div className="main">
-			<div className="div_esquerda">
-				<Table header={header} rows={rows} />
-			</div>
-			<div className="div_direita">
+		<Styles.Container>
+			<Styles.Aside>
+				<Form />
+			</Styles.Aside>
+			<Styles.Main>
+				{' '}
 				<div {...getRootProps()}>
 					<input {...getInputProps()} />
 					<p>Drag 'n' drop some files here, or click to select files</p>
-				</div>
-			</div>
-		</div>
+				</div>{' '}
+				<Table header={header} rows={rows} />{' '}
+			</Styles.Main>
+			{/* 			<Config />
+			 */}{' '}
+			{/*
+			 */}
+		</Styles.Container>
 	)
 }
 
