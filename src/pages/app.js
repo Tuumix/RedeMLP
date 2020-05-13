@@ -6,7 +6,7 @@ import Form from '../components/Form'
 import Config from '../components/config'
 import * as XLSX from 'xlsx'
 import { JsonToTable } from 'react-json-to-table'
-
+import Core from '../components/core'
 import Table from '../components/table'
 import normalize from '../Utils/utils'
 function App(props) {
@@ -53,19 +53,15 @@ function App(props) {
 				<Form />
 			</Styles.Aside>
 			<Styles.Main>
-				{' '}
-				<div {...getRootProps()}>
-					<input {...getInputProps()} />
-					<p>Drag 'n' drop some files here, or click to select files</p>
-				</div>{' '}
-				<Table header={header} rows={rows} />{' '}
+				<Core />
+				<Table header={header} rows={rows} />
 			</Styles.Main>
-			{/* 			<Config />
-			 */}{' '}
-			{/*
-			 */}
 		</Styles.Container>
 	)
 }
+/* 	<div {...getRootProps()}>
+		<input {...getInputProps()} />
+		<p>Drag 'n' drop some files here, or click to select files</p>
+	</div> */
 
 export default App
