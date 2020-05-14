@@ -3,7 +3,6 @@ import Styles from './styles'
 import {
 	Radio,
 	RadioGroup,
-	FormControl,
 	FormControlLabel,
 	FormLabel,
 } from '@material-ui/core'

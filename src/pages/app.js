@@ -1,28 +1,9 @@
-import React, { useCallback } from 'react'
-import { useDropzone } from 'react-dropzone'
-import { Button, TextField, withStyles } from '@material-ui/core'
+import React from 'react'
 import Styles from '../components/pages/App/styles'
 import Form from '../components/Form'
-import Config from '../components/config'
-import * as XLSX from 'xlsx'
-import { JsonToTable } from 'react-json-to-table'
 import Core from '../components/core'
-import Table from '../components/table'
-import normalize from '../Utils/utils'
 function App(props) {
-	const linha = []
-	const [header, setHeader] = React.useState([])
-	const [rows, setRows] = React.useState([])
-
-	function toObject(vetor, titulo) {
-		let aux = {}
-		for (let i = 0; i < vetor.length; i++) {
-			aux[titulo[i]] = vetor[i]
-		}
-		return aux
-	}
-
-	const onDrop = useCallback((acceptedFiles) => {
+	/* const onDrop = useCallback((acceptedFiles) => {
 		acceptedFiles.forEach((file) => {
 			const reader = new FileReader()
 			reader.onabort = () => console.log('file reading was aborted')
@@ -37,15 +18,11 @@ function App(props) {
 
 				setHeader(normal[0])
 				setRows(rows)
-				/*
-        for(let i = 1; i < data.length;i++){
-          linha.push(toObject(data[i],titulo));
-        } */
+
 			}
 			reader.readAsBinaryString(file)
 		})
-	}, [])
-	const { getRootProps, getInputProps } = useDropzone({ onDrop })
+	}, []) */
 
 	return (
 		<Styles.Container>
@@ -54,7 +31,6 @@ function App(props) {
 			</Styles.Aside>
 			<Styles.Main>
 				<Core />
-				<Table header={header} rows={rows} />
 			</Styles.Main>
 		</Styles.Container>
 	)

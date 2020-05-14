@@ -6,6 +6,7 @@ import {
 	TableHead,
 	TableCell,
 	TableRow,
+	Paper,
 } from '@material-ui/core'
 // import { Container } from './styles';
 
@@ -13,8 +14,11 @@ function Table(props) {
 	const { header, rows } = props
 
 	return (
-		<TableContainer>
-			<MaterialTable stickyHeader>
+		<TableContainer
+			style={{ overflow: 'auto', maxHeight: 500, margin: '2rem 0' }}
+			component={Paper}
+		>
+			<MaterialTable stickyHeader size={'small'}>
 				<TableHead>
 					{header.map((column, key) => (
 						<TableCell key align={'center'}>
@@ -24,11 +28,11 @@ function Table(props) {
 				</TableHead>
 				<TableBody>
 					{rows.map((row, key) => (
-						<TableRow key>
+						<TableRow hover role="checkbox" key>
 							{row.map((data, key) => {
 								return (
 									<TableCell key={`${key + data}`} align={'center'}>
-										{data}
+										{typeof data === 'number' ? data.toFixed(6) : data}
 									</TableCell>
 								)
 							})}
